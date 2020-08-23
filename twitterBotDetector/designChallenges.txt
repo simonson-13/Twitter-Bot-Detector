@@ -1,0 +1,39 @@
+1.  Problem:
+      couldn't figure out how to save the information recieved from the api into variables outside of the function scope.
+      The variables were just not updating, probably because i'm not a master of JS yet. Instead of changing the variable,
+      they would just be altered within that scope, but not when you jump out of the function.
+
+    Solution:
+      I ended up deciding to go around that, by writing all my recieved data into another text file. This way I can still
+      have access to all the recieved data. Also, you'r prob wondering why i need to save my data anyways. Its because the
+      Twitter API only allows you to recieve a total of 5000 ids per request. This means that If you wanted to get a list
+      of the IDs of all the followers of say, Donald Trump, which is like a couple million IDs, it'd be impossible to
+      grab all the IDs in one request, forcing you to request mulitple times, meaning you need to store the old IDs
+      somewhere.
+
+2.  Problem:
+      Wanted to make the program be able to accept user input based on which user on twitter they wanted to research.
+      However, this would not be possible because in the event that they chose a user that required more than 100 API
+      calls, the process of gathering that data would be at least an hour long. Why? Because the twitter API only
+      allows 100 API requests per hour. meaning for my program to find out the data for all followers of Trump, which
+      is a couple million, we would indeed need to make a couple million API requests, which would take too long.
+
+    Solution:
+      No solution.
+
+3.  Problem:
+      After further analysis and research, ive decided to scrap the idea of analyzing each follower of an account, and
+      instead focus this program on analyzing one user account specifically, and deciding if THAT is a bot. The reason
+      for this change is because I have realized that the rate limit for api requests will stop me from completing this
+      program in a realistic amount of time. Even if i were to hard code the program to not take user input and focus
+      on one account only, like trump's, it would still take beyond months. For this reason, I will switch
+
+    Solution:
+      I believe I can make an equally exciting program, but smaller in scale. I will be analyzing whether or not
+      an inputted user is a bot. This will be measured by 4 metrics:
+      // 1. is the followers to following ratio less than or equal to one percent?
+      // 2. is default profile pic true?
+      // 3. is the number of posts less than or equal to 1?
+      // 4. has the theme or background never been altered?
+      if the account marks true for each of these conditions, it is PREDICTED that this account is most likely a bot or
+      fake account.
